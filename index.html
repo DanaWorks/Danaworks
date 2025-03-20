@@ -223,7 +223,7 @@
             transition: background 0.3s, transform 0.3s;
             box-shadow: 0px 5px 15px rgba(255, 215, 0, 0.4);
             font-weight: bold;
-            margin-top: 10px;
+            margin-top: 100px;
             width: 90%;
         }
 
@@ -377,14 +377,16 @@
         }
 
         createBubbles();
-
-         function clearData() {
-        confirm("Saldo akan riset 0 jika anda tekan Ya");
-        localStorage.removeItem("rewardCount");
-        localStorage.removeItem("balance");
-        document.getElementById("reward-count").innerText = "0";
-        document.getElementById("balance").innerText = "0.000";
-        alert("Data Cleared Successfully!");
+function clearData() {
+            if (confirm("Apakah kamu yakin ingin menghapus data ini?")) {
+                localStorage.removeItem("rewardCount");
+                localStorage.removeItem("balance");
+                document.getElementById("reward-count").innerText = "0";
+                document.getElementById("balance").innerText = "0.000";
+                alert("Data berhasil dihapus!");
+            } else {
+                alert("Penghapusan data dibatalkan.");
+            }
         }
     </script>
 
