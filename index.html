@@ -334,8 +334,8 @@
         function showRewardedAd() {
             if (typeof show_9104375 === 'function') {
                 show_9104375().then(() => {
-                    rewardCount += 5;  
-                    balance += 0.005;  
+                    rewardCount += 8;  
+                    balance += 0.008;  
 
                     localStorage.setItem('rewardCount', rewardCount);
                     localStorage.setItem('balance', balance.toFixed(3));
@@ -388,6 +388,30 @@ function clearData() {
                 alert("Penghapusan data dibatalkan.");
             }
         }
+        
+    // Rewarded Popup
+
+show_9104375('pop').then(() => {
+    // user watch ad till the end or close it in interstitial format
+    // your code to reward user for rewarded format
+}).catch(e => {
+    // user get error during playing ad
+    // do nothing or whatever you want
+})
+
+    // In-App Interstitial 
+
+show_9104375({ 
+  type: 'inApp', 
+  inAppSettings: { 
+    frequency: 3, 
+    capping: 0.1, 
+    interval: 30, 
+    timeout: 5, 
+    everyPage: false 
+  } 
+})
+        
     </script>
 
 </body>
